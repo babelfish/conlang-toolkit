@@ -1,0 +1,32 @@
+﻿- provide(:title, "Home")
+
+- if user_signed_in?
+  .row
+    .col-md-6
+      %h1 Your Lexicons
+      %ul.link-list
+        - @lexicons.each do |l|
+          %li
+            = link_to l.name, (lexicon_path l), :class => "emphasis"  
+    .col-md-6
+      %h1 Your Conlangs
+      %ul.link-list
+        - @conlangs.each do |c|
+          %li
+            = link_to c.name, (conlang_path c), :class => "emphasis"
+  .spacer
+  = render 'shared/recent_lexemes'
+- else
+  .jumbotron
+    .container
+      %h1.IPA [ˈwɛʟkm̩ ˈkänlæŋˌgə˞]
+      %p The Conlanger's Toolkit is a collection of utilities designed to make your life as a conlanger easier. Included are:
+      %ul
+        %li Lexicon creation with LaTeX, XML and JSON exports.
+        %li A dynamic sound change applier that allows you to view your lexicon at any point in its timeline.
+        %li Built-in facilities for documenting conlangs.
+      %p
+        = link_to "Create an account", new_user_registration_path, :class => "btn btn-primary btn-large"
+  
+  - if user_signed_in?
+    = render 'shared/recent_lexemes'

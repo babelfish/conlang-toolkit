@@ -1,0 +1,15 @@
+- provide(:title, @lexicon.name)
+
+.row
+  .col-md-12
+    - if current_user? @lexicon.user
+      %h1= link_to @lexicon.name, (edit_lexicon_path @lexicon)
+    - else
+      %h1= @lexicon.name
+%dl.dl-horizontal.lexicon
+  - @lexemes.each do |l|
+    %hr
+    = render 'shared/lexeme', object: l
+  %hr
+
+= link_to "+ Add new lexeme", new_lexeme_path, :class => "emphasis"

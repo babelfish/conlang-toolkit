@@ -1,0 +1,58 @@
+- provide(:title, "#{@lexicon.name} - #{@lexeme.name} (Edit)")
+
+%h1 Edit Lexeme - #{ link_to @lexeme.name, (lexeme_path @lexeme) }
+= form_for(@lexeme) do |l|
+  = render 'shared/error_messages', object: l.object
+  
+  .row
+    .col-md-6
+      .form-group.lexicons
+        = l.label :lexicon_id, "Lexicon"
+        = l.select :lexicon_id, (options_for_select @lexicons_options), {}, { :class => "chosen-select form-control" }
+      
+      .form-group
+        = l.label :name
+        .input-group
+          = l.text_field :name, :class => "form-control"
+          .generate.input-group-btn
+            .btn.btn-default
+              %i{ :class => "glyphicon glyphicon-cog" }
+      
+      .form-group
+        = l.label :transcription
+        = l.text_field :transcription, :class => "IPA form-control"
+      
+      .form-group
+        = l.label :part, "Part of speech"
+        = l.text_field :part, :class => "form-control"
+      
+      .form-group.tags
+        = label_tag :tags
+        = select_tag :tags, (options_for_select @tags_options), :class => "chosen-select form-control", :multiple => true
+  
+      %h4
+        %strong Definitions
+      %span.note (#{ link_to "Markdown", "http://daringfireball.net/projects/markdown/basics" } may be used in definition and usage note fields.)
+      
+      - @definitions.each do |d|
+        .clear.clearfix.form-group.definition
+          = label_tag "definition_#{d.id}", "Definition", :class => "definition existing-definition"
+          = text_area_tag "definition_#{d.id}", d.text,   :class => "definition existing-definition form-control", :rows => 4
+          
+          - if !d.usage_note.nil?
+            - d.usage_note.tap do |u|
+              .clear.clearfix.form-group.note
+                = label_tag "notes_#{u.id}", "Usage Notes", :class => "notes existing-notes"
+                = text_area_tag "notes_#{u.id}", u.text,    :class => "notes existing-notes form-control", :rows => 4
+              %span.remove.notes.btn.btn-danger - Remove notes
+          - else
+            %span.add.notes.btn.btn-default + Add usage notes
+          
+          %span.remove.definition.btn.btn-danger - Remove definition
+      
+      %span.add.definition.clear.btn.btn-default + Add definition
+  
+      %br
+      %br
+      = l.submit "Submit", :class => "btn btn-large btn-primary pull-left"
+      = button_to "Delete Lexeme", @lexeme, :class => "btn btn-large btn-danger pull-right", :method => :delete, :confirm => "Are you sure?"

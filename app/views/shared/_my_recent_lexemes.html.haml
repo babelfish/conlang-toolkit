@@ -1,0 +1,17 @@
+﻿- lexemes = current_user.lexemes.order("created_at DESC").limit(3)
+%h2 Your Recent Lexemes
+- lexemes.each do |l|
+  %dl.lexicon
+    %dt
+      = l.name + ", "
+      %span.part= l.part
+    .transcription.IPA= "/" + l.transcription + "/"
+    - l.definitions.each do |d|
+      %dd
+        :markdown
+          #{d.text}
+      - if !d.usage_note.nil?
+        .usagenote
+          :markdown
+            #{d.usage_note.text}
+    %p= link_to "View lexicon &raquo;".html_safe, (lexicon_path l.lexicon), :class => "btn btn-default"

@@ -1,0 +1,29 @@
+- show_lexicon ||= nil
+- if !object.nil?
+  %dt
+    - if current_user == object.lexicon.user
+      = (link_to object.name, (edit_lexeme_path object.id)) + ", "
+    - else
+      = object.name + ", "
+    %span.part= object.part
+    .transcription.IPA= "/" + object.transcription + "/"
+    
+    - if show_lexicon
+      %p= link_to "View lexicon &raquo;".html_safe, (lexicon_path object.lexicon), :class => "btn btn-default"
+
+  %dd
+    - definitions = object.definitions
+    - if !definitions.empty?
+      %ol.definition-list
+        - definitions.each do |d|
+          %li
+            :markdown
+              #{ d.text }
+            - if !d.usage_note.nil?
+              .usagenote
+                :markdown
+                  #{ d.usage_note.text }
+    .tags
+      %strong Tags: 
+      %em= object.lexeme_tags.map { |t| "<span class='tag'>#{sanitize t.name}</span>" }.join(", ").html_safe
+      

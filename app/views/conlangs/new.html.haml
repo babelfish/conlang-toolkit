@@ -1,0 +1,277 @@
+- provide(:title, "New Conlang")
+
+%h1 New Conlang
+= form_for @conlang, :html => { :role => "form" } do |c|
+  = render "shared/error_messages", :object => c.object
+  = c.hidden_field :user_id
+  .form-group
+    = c.label :public
+    .radio
+      %label
+        = c.radio_button :public, "true", :checked => true
+        Yes
+    .radio
+      %label
+        = c.radio_button :public, "false"
+        No
+  .row
+    .col-md-10
+      .row
+        .col-md-8
+          .row
+            .col-md-6
+              .form-group
+                = c.label :name
+                = c.text_field :name, :class => "form-control"
+            .col-md-6
+              .form-group
+                = c.label :alignment, "Morphosyntactic Alignment"
+                = c.select :alignment, Conlang::alignment_opts, {}, { :class => "form-control" }
+          .row
+            .col-md-6
+              .form-group
+                = c.label :endonym
+                = c.text_field :endonym, :class => "form-control"
+            .col-md-6
+              .form-group
+                = c.label :morpho_type, "Morphological Type"
+                = c.select :morpho_type, Conlang::type_opts, {}, { :class => "form-control" }
+          .row
+            .col-md-6
+              .form-group
+                = c.label :pronunciation
+                = c.text_field :pronunciation, :class => "form-control IPA"
+            .col-md-6
+              .form-group
+                = c.label :word_order, "Word Order"
+                = c.select :word_order, Conlang::order_opts, {}, { :class => "form-control" }
+        .col-md-4
+          %p.text-warning *Required fields.
+          
+          %p #{ link_to "Markdown", "http://daringfireball.net/projects/markdown/basics", :target => "_blank" } can be used in any of the text boxes except Syllable Structure.
+          %p Click #{ link_to "here", "/markdown/help", :target => "_blank" } for more information on tools provided for use in the markdown.
+      
+      .form-group
+        = c.label :intro
+        = c.text_area :intro, :class => "form-control", :rows => 10
+      .form-group
+        = c.label :genealogy
+        = c.text_area :genealogy, :class => "form-control", :rows => 10
+      .form-group
+        = c.label :demography
+        = c.text_area :demography, :class => "form-control", :rows => 10
+      .form-group
+        = c.label :typology
+        = c.text_area :typology, :class => "form-control", :rows => 10
+      .form-group
+        = c.label :dialects
+        = c.text_area :dialects, :class => "form-control", :rows => 10
+      
+      %h3 Phonology
+      .form-group
+        = c.label :phonemes, "Phoneme Inventory"
+        = c.text_area :phonemes, :class => "form-control", :rows => 10
+      .form-group
+        = c.label :prosody
+        = c.text_area :prosody, :class => "form-control", :rows => 10
+      .form-group
+        = c.label :allophony
+        = c.text_area :allophony, :class => "form-control", :rows => 10
+      .form-group
+        = c.label :tone
+        = c.text_area :tone, :class => "form-control", :rows => 10
+      .form-group
+        = c.label :phonotactics
+        = c.text_area :phonotactics, :class => "form-control", :rows => 10
+      .form-group
+        = c.label :stress, "Stress & Rhythm"
+        = c.text_area :stress, :class => "form-control", :rows => 10
+      
+      .form-group
+        = c.label :syllable_structure
+        
+        .row
+          .col-md-6
+            = c.text_area :syllable_structure, :class => "form-control", :value => "C = bcdfghjklmnpqrstvwxyz\nV = aeiou\n\nnum_syllables = 3\ninitial = \nmedial = CV\nfinal = "
+          .col-md-6.explanation
+            %p This section defines variables for automatic lexeme generation.
+            %p There are four special variables that determine how lexeme generation behaves. These are:
+            %ul
+              %li
+                %strong num_syllables
+                Words generated will use a random number of syllables up to this limit.
+              %li
+                %strong initial
+                The structure for initial syllables.
+              %li
+                %strong medial
+                The structure for medial syllables.
+              %li
+                %strong final
+                The structure for final syllables.
+            %p
+              If
+              %strong initial
+              and/or
+              %strong final
+              is missing, 
+              %strong medial
+              will be used instead.
+              %strong Medial
+              is required.
+            %p You can define any additional variables you want, see the defaults to the left as an example.
+            
+            %strong Usage
+            %p Multi-character literal strings can used by surrounding them with angle brackets. Other variables can be referenced using square brackets. It is important that you only reference other variables that have already been defined, doing otherwise will give unexpected results.
+            
+            %strong Initial/Medial/Final usage
+            %p A section can be marked as optional by surrounding it with parentheses. To have the parser choose between two or more variables or literals, separate them with forward slashes within a single set of brackets.
+             
+      -# END PHONOLOGY SECTION
+      
+      %br
+      
+      .form-group
+        = c.label :writing_system
+        = c.text_area :writing_system, :class => "form-control", :rows => 10
+      
+      %h2 Grammar
+      
+      %h3 Nouns
+      
+      .form-group
+        = c.label :noun_intro, "Intro"
+        = c.text_area :noun_intro, :class => "form-control", :rows => 10
+      .form-group
+        = c.label :noun_case, "Case"
+        = c.text_area :noun_case, :class => "form-control", :rows => 10
+      .form-group
+        = c.label :noun_number, "Number"
+        = c.text_area :noun_number, :class => "form-control", :rows => 10
+      .form-group
+        = c.label :noun_class, "Noun Class"
+        = c.text_area :noun_class, :class => "form-control", :rows => 10
+      .form-group
+        = c.label :noun_definiteness_determiners_demonstratives, "Definiteness, Determiners & Demonstratives"
+        = c.text_area :noun_definiteness_determiners_demonstratives, :class => "form-control", :rows => 10
+      .form-group
+        = c.label :noun_augmentation, "Noun Augmentation"
+        = c.text_area :noun_augmentation, :class => "form-control", :rows => 10
+      .form-group
+        = c.label :noun_compounding, "Noun Compounding"
+        = c.text_area :noun_compounding, :class => "form-control", :rows => 10
+      .form-group
+        = c.label :noun_phrases, "Noun Phrases"
+        = c.text_area :noun_phrases, :class => "form-control", :rows => 10
+      .form-group
+        = c.label :animacy
+        = c.text_area :animacy, :class => "form-control", :rows => 10
+      .form-group
+        = c.label :denominalization
+        = c.text_area :denominalization, :class => "form-control", :rows => 10
+      .form-group
+        = c.label :possession
+        = c.text_area :possession, :class => "form-control", :rows => 10
+      .form-group
+        = c.label :anaphor_cataphor, "Anaphor & Cataphor"
+        = c.text_area :anaphor_cataphor, :class => "form-control", :rows => 10
+
+      %h3 Verbs
+      
+      .form-group
+        = c.label :verbs_intro, "Intro"
+        = c.text_area :verbs_intro, :class => "form-control", :rows => 10
+      .form-group
+        = c.label :valence
+        = c.text_area :valence, :class => "form-control", :rows => 10
+      .form-group
+        = c.label :verbs_tense, "Tense"
+        = c.text_area :verbs_tense, :class => "form-control", :rows => 10
+      .form-group
+        = c.label :verbs_aspect, "Aspect"
+        = c.text_area :verbs_aspect, :class => "form-control", :rows => 10
+      .form-group
+        = c.label :verbs_mood, "Mood"
+        = c.text_area :verbs_mood, :class => "form-control", :rows => 10
+      .form-group
+        = c.label :verbs_evidentiality, "Evidentiality"
+        = c.text_area :verbs_evidentiality, :class => "form-control", :rows => 10
+      .form-group
+        = c.label :verbs_compounding, "Verb Compounding"
+        = c.text_area :verbs_compounding, :class => "form-control", :rows => 10
+      .form-group
+        = c.label :verb_phrases, "Verb Phrases"
+        = c.text_area :verb_phrases, :class => "form-control", :rows => 10
+      .form-group
+        = c.label :direct_inverse, "Direct/Inverse Marking"
+        = c.text_area :direct_inverse, :class => "form-control", :rows => 10
+      .form-group
+        = c.label :location_direction, "Location/Direction"
+        = c.text_area :location_direction, :class => "form-control", :rows => 10
+      .form-group
+        = c.label :nominalization
+        = c.text_area :nominalization, :class => "form-control", :rows => 10
+      .form-group
+        = c.label :negation
+        = c.text_area :negation, :class => "form-control", :rows => 10
+      .form-group
+        = c.label :modifiers
+        = c.text_area :modifiers, :class => "form-control", :rows => 10
+      .form-group
+        = c.label :adjectives
+        = c.text_area :adjectives, :class => "form-control", :rows => 10
+      .form-group
+        = c.label :adverbs
+        = c.text_area :adverbs, :class => "form-control", :rows => 10
+      .form-group
+        = c.label :pragmatics
+        = c.text_area :pragmatics, :class => "form-control", :rows => 10
+      .form-group
+        = c.label :focus_topic
+        = c.text_area :focus_topic, :class => "form-control", :rows => 10
+      
+      %h3 Syntax
+      
+      .form-group
+        = c.label :syntax_intro, "Intro"
+        = c.text_area :syntax_intro, :class => "form-control", :rows => 10
+      .form-group
+        = c.label :word_order_description, "Word Order"
+        = c.text_area :word_order_description, :class => "form-control", :rows => 10
+      .form-group
+        = c.label :adpositional_phrases, "Adpositional Phrases"
+        = c.text_area :adpositional_phrases, :class => "form-control", :rows => 10
+      .form-group
+        = c.label :comparatives
+        = c.text_area :comparatives, :class => "form-control", :rows => 10
+      .form-group
+        = c.label :questions
+        = c.text_area :questions, :class => "form-control", :rows => 10
+      .form-group
+        = c.label :serial_verbs, "Serial Verbs"
+        = c.text_area :serial_verbs, :class => "form-control", :rows => 10
+      .form-group
+        = c.label :complement_clauses, "Complement Clauses"
+        = c.text_area :complement_clauses, :class => "form-control", :rows => 10
+      .form-group
+        = c.label :relative_clauses, "Relative Clauses"
+        = c.text_area :relative_clauses, :class => "form-control", :rows => 10
+      .form-group
+        = c.label :adverbial_clauses, "Adverbial Clauses"
+        = c.text_area :adverbial_clauses, :class => "form-control", :rows => 10
+      .form-group
+        = c.label :clause_chaining, "Clause Chaining"
+        = c.text_area :clause_chaining, :class => "form-control", :rows => 10
+      .form-group
+        = c.label :coordination
+        = c.text_area :coordination, :class => "form-control", :rows => 10
+      .form-group
+        = c.label :syntax_additional, "Additional Syntax Info"
+        = c.text_area :syntax_additional, :class => "form-control", :rows => 10
+      .form-group
+        = c.label :conclusion
+        = c.text_area :conclusion, :class => "form-control", :rows => 10
+      
+      %br
+      
+      = c.submit "Create", :class => "btn btn-large btn-primary"

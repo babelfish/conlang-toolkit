@@ -1,0 +1,15 @@
+// Place all the styles related to the Lexemes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+span.add.definition {
+  margin-top: 10px;
+}
+
+span.remove.definition {
+  margin-left: 5px;
+}
+
+textarea.definition, textarea.notes {
+  margin-bottom: 5px;
+}

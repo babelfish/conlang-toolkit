@@ -1,0 +1,32 @@
+%h1 Public Lexicons
+
+- @lexicons.in_groups_of 2 do |grp|
+  .row
+    - if !grp[0].nil?
+      .col-md-5.content-box
+        .row
+          .col-md-6
+            .lexicon
+              = link_to grp[0].name, grp[0]
+          .col-md-6
+            .word-count
+              Lexeme count: 
+              %span.badge= grp[0].lexemes.count
+        .row
+          .col-md-12
+            .owner
+              = link_to grp[0].user.name, grp[0].user
+    - if !grp[1].nil?
+      .col-md-5.col-md-offset-1.content-box
+        .row
+          .col-md-6
+            .lexicon
+              = link_to grp[1].name, grp[1]
+          .col-md-6
+            .word-count
+              Lexeme count: 
+              %span.badge= grp[1].lexemes.count
+        .row
+          .col-md-12
+            .owner
+              = link_to grp[1].user.name, grp[1].user

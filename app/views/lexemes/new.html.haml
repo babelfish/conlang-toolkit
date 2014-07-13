@@ -1,0 +1,40 @@
+- provide(:title, "New Lexeme")
+%h1 New Lexeme
+= form_for @lexeme, :html=> { :role => "form" } do |l|
+  = render 'shared/error_messages', object: l.object
+  
+  .row
+    .col-md-6
+      .form-group.lexicons
+        = l.label :lexicon_id, "Lexicon"
+        = l.select :lexicon_id, (options_for_select @lexicons_options), {}, { :class => "chosen-select form-control" }
+      
+      .form-group
+        = l.label :name
+        .input-group
+          = l.text_field :name, :class => "form-control"
+          .generate.input-group-btn
+            .btn.btn-default
+              %i{ :class => "glyphicon glyphicon-cog" }
+      
+      .form-group
+        = l.label :transcription
+        = l.text_field :transcription, :class => "IPA form-control"
+      
+      .form-group
+        = l.label :part, "Part of speech"
+        = l.text_field :part, :class => "form-control"
+      
+      .form-group.tags
+        = label_tag :tags
+        = select_tag :tags, (options_for_select @tags_options), :class => "chosen-select form-control", :multiple => true
+      
+      %h4
+        %strong Definitions
+      %span.note (#{ link_to "Markdown", "http://daringfireball.net/projects/markdown/basics" } may be used in definition and usage note fields.)
+      
+      %span.add.definition.clear.btn.btn-default{ :"data-listener" => "add_definition" } + Add definition
+      
+      %br
+      %br
+      = l.submit "Create", class: "btn btn-large btn-primary"

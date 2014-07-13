@@ -1,0 +1,33 @@
+- provide(:title, "#{@lexicon.name} (Edit)")
+
+.row
+  .col-md-6
+    %h1 Edit Lexicon - #{ link_to @lexicon.name, (lexicon_path @lexicon) }
+    = form_for @lexicon, :html => { :role => "form" } do |l|
+      = render 'shared/error_messages', :object => l.object
+      = l.hidden_field :user_id
+      = l.hidden_field :conlang_id
+      = hidden_field_tag :inherited_lexicons
+      
+      .form-group
+        = l.label :name
+        = l.text_field :name, :class => "form-control"
+        
+      = box_select @conlangs, :label => "Conlang", :required => true, :target => "lexicon_conlang_id", :matching_object => @lexicon.conlang
+      = box_select @lexicons, :label => "Inherited Lexicons", :target => "inherited_lexicons", :matching_object => @lexicon.inherited_lexicons, :multi_select => true
+      
+      .form-group
+        = l.label :public
+        .radio
+          %label
+            = l.radio_button :public, "true", :checked => true
+            Yes
+        .radio
+          %label
+            = l.radio_button :public, "false"
+            No
+      
+      .control-group
+        .controls
+          = button_to "Submit", (lexicon_path @lexicon), :method => :update, :class => "btn btn-primary pull-left submit"
+          = button_to "Delete this Lexicon", (lexicon_path @lexicon), :method => :delete, :confirm => "Are you sure you want to delete this lexicon? This is irreversible.", :class => "btn btn-danger pull-left"

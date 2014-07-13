@@ -1,0 +1,109 @@
+﻿- provide(:title, @conlang.name)
+
+.row-fluid
+  .span10
+    - if current_user? @conlang.user
+      .edit
+        %i.icon-cog.icon-white
+        = link_to "Edit", (edit_conlang_path @conlang)
+    %h1= @conlang.name
+    .spacer.small
+    %table.infobox
+      - if !@conlang.endonym.blank?
+        %tr
+          %td.strong Endonym: 
+          %td= @conlang.endonym
+      - if !@conlang.pronunciation.blank?
+        %tr
+          %td.strong Pronunciation:
+          %td.IPA= @conlang.pronunciation
+      - if !@conlang.alignment.blank?
+        %tr
+          %td.strong Morphosyntactic Alignment:
+          %td= @conlang.alignment
+      - if !@conlang.morpho_type.blank?
+        %tr
+          %td.strong Morphological Type:
+          %td= @conlang.morpho_type
+      - if !@conlang.word_order.blank?
+        %tr
+          %td.strong Word Order:
+          %td= @conlang.word_order
+    
+    %ol.main
+      = render :partial => "shared/conlang_text_field", :locals => { :field => @conlang.intro,      :title => "Intro" }
+      = render :partial => "shared/conlang_text_field", :locals => { :field => @conlang.genealogy,  :title => "Genealogy" }
+      = render :partial => "shared/conlang_text_field", :locals => { :field => @conlang.demography, :title => "Demography" }
+      = render :partial => "shared/conlang_text_field", :locals => { :field => @conlang.typology,   :title => "Typology" }
+      = render :partial => "shared/conlang_text_field", :locals => { :field => @conlang.dialects,   :title => "Dialects" }
+      
+      %li
+        %h2 Phonology
+        %ol
+          = render :partial => "shared/conlang_text_field", :locals => { :field => @conlang.phonemes,           :title => "Phonemes" }
+          = render :partial => "shared/conlang_text_field", :locals => { :field => @conlang.prosody,            :title => "Prosody" }
+          = render :partial => "shared/conlang_text_field", :locals => { :field => @conlang.allophony,          :title => "Allophony" }
+          = render :partial => "shared/conlang_text_field", :locals => { :field => @conlang.tone,               :title => "Tone" }
+          = render :partial => "shared/conlang_text_field", :locals => { :field => @conlang.phonotactics,       :title => "Phonotactics" }
+          = render :partial => "shared/conlang_text_field", :locals => { :field => @conlang.stress,             :title => "Stress & Rhythm" }
+          = render :partial => "shared/conlang_text_field", :locals => { :field => (simple_format @conlang.syllable_structure),
+                                                                         :title => "Syllable Structure" }
+          
+      = render :partial => "shared/conlang_text_field", :locals => { :field => @conlang.writing_system, :title => "Writing System" }
+      
+      %li 
+        %h2 Nouns
+        %ol
+          = render :partial => "shared/conlang_text_field", :locals => { :field => @conlang.noun_intro,        :title => "Intro" }
+          = render :partial => "shared/conlang_text_field", :locals => { :field => @conlang.noun_case,         :title => "Case" }
+          = render :partial => "shared/conlang_text_field", :locals => { :field => @conlang.noun_number,       :title => "Number" }
+          = render :partial => "shared/conlang_text_field", :locals => { :field => @conlang.noun_class,        :title => "Noun Class" }
+          = render :partial => "shared/conlang_text_field", :locals => { :field => @conlang.noun_definiteness_determiners_demonstratives,
+                                                                         :title => "Definiteness, Determiners & Demonstratives" }
+          = render :partial => "shared/conlang_text_field", :locals => { :field => @conlang.noun_augmentation, :title => "Noun Augmentation" }
+          = render :partial => "shared/conlang_text_field", :locals => { :field => @conlang.noun_compounding,  :title => "Noun Compounding" }
+          = render :partial => "shared/conlang_text_field", :locals => { :field => @conlang.noun_phrases,      :title => "Noun Phrases" }
+          = render :partial => "shared/conlang_text_field", :locals => { :field => @conlang.animacy,           :title => "Animacy" }
+          = render :partial => "shared/conlang_text_field", :locals => { :field => @conlang.denominalization,  :title => "Denominalization" }
+          = render :partial => "shared/conlang_text_field", :locals => { :field => @conlang.possession,        :title => "Possession" }
+          = render :partial => "shared/conlang_text_field", :locals => { :field => @conlang.anaphor_cataphor,  :title => "Anaphor & Cataphor" }
+      
+      %li 
+        %h2 Verbs
+        %ol
+          = render :partial => "shared/conlang_text_field", :locals => { :field => @conlang.verbs_intro,         :title => "Intro" }
+          = render :partial => "shared/conlang_text_field", :locals => { :field => @conlang.valence,             :title => "Valence" }
+          = render :partial => "shared/conlang_text_field", :locals => { :field => @conlang.verbs_tense,         :title => "Tense" }
+          = render :partial => "shared/conlang_text_field", :locals => { :field => @conlang.verbs_aspect,        :title => "Aspect" }
+          = render :partial => "shared/conlang_text_field", :locals => { :field => @conlang.verbs_mood,          :title => "Mood" }
+          = render :partial => "shared/conlang_text_field", :locals => { :field => @conlang.verbs_evidentiality, :title => "Evidentiality" }
+          = render :partial => "shared/conlang_text_field", :locals => { :field => @conlang.verbs_compounding,   :title => "Verb Compounding" }
+          = render :partial => "shared/conlang_text_field", :locals => { :field => @conlang.verb_phrases,        :title => "Verb Phrases" }
+          = render :partial => "shared/conlang_text_field", :locals => { :field => @conlang.direct_inverse,      :title => "Direct/Inverse Marking" }
+          = render :partial => "shared/conlang_text_field", :locals => { :field => @conlang.location_direction,  :title => "Location/Direction" }
+          = render :partial => "shared/conlang_text_field", :locals => { :field => @conlang.nominalization,      :title => "Nominalization" }
+          = render :partial => "shared/conlang_text_field", :locals => { :field => @conlang.negation,            :title => "Negation" }
+      
+      = render :partial => "shared/conlang_text_field", :locals => { :field => @conlang.modifiers, :title => "Modifiers" }
+      = render :partial => "shared/conlang_text_field", :locals => { :field => @conlang.adjectives, :title => "Adjectives" }
+      = render :partial => "shared/conlang_text_field", :locals => { :field => @conlang.adverbs, :title => "Adverbs" }
+      = render :partial => "shared/conlang_text_field", :locals => { :field => @conlang.pragmatics, :title => "Pragmatics" }
+      = render :partial => "shared/conlang_text_field", :locals => { :field => @conlang.focus_topic, :title => "Focus/Topic" }
+      
+      %li
+        %h2 Syntax
+        %ol
+          = render :partial => "shared/conlang_text_field", :locals => { :field => @conlang.syntax_intro, :title => "Intro" }
+          = render :partial => "shared/conlang_text_field", :locals => { :field => @conlang.word_order_description, :title => "Word Order" }
+          = render :partial => "shared/conlang_text_field", :locals => { :field => @conlang.adpositional_phrases, :title => "Adpositional Phrases" }
+          = render :partial => "shared/conlang_text_field", :locals => { :field => @conlang.comparatives, :title => "Comparatives" }
+          = render :partial => "shared/conlang_text_field", :locals => { :field => @conlang.questions, :title => "Questions" }
+          = render :partial => "shared/conlang_text_field", :locals => { :field => @conlang.serial_verbs, :title => "Serial Verbs" }
+          = render :partial => "shared/conlang_text_field", :locals => { :field => @conlang.complement_clauses, :title => "Complement Clauses" }
+          = render :partial => "shared/conlang_text_field", :locals => { :field => @conlang.relative_clauses, :title => "Relative Clauses" }
+          = render :partial => "shared/conlang_text_field", :locals => { :field => @conlang.adverbial_clauses, :title => "Adverbial Clauses" }
+          = render :partial => "shared/conlang_text_field", :locals => { :field => @conlang.clause_chaining, :title => "Clause Chaining" }
+          = render :partial => "shared/conlang_text_field", :locals => { :field => @conlang.coordination, :title => "Coordination" }
+          = render :partial => "shared/conlang_text_field", :locals => { :field => @conlang.syntax_additional, :title => "Additional Syntax Info" }
+      
+      = render :partial => "shared/conlang_text_field", :locals => { :field => @conlang.conclusion, :title => "Conclusion" }

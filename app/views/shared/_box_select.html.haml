@@ -1,0 +1,8 @@
+﻿.control-group{ :class => required && "required" }
+  %label.control-label{ :class => required && "required" }= label || ""
+  .controls.box-select{ :"data-target" => target, :"data-multi-select" => (multi_select and "true") }
+    - collection.each do |x|
+      - if matching_object == x or (matching_object.class.method_defined? :index and matching_object.index x)
+        .btn.btn-primary{ :"data-value" => x.id }= x.name
+      - else
+        .btn.btn-default{ :"data-value" => x.id }= x.name

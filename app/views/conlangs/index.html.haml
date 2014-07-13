@@ -1,0 +1,10 @@
+﻿%h1 Public Conlangs
+
+- @conlangs.in_groups_of 2 do |grp|
+  .row
+    - grp.each do |c|
+      .col-md-6
+        .lexicon
+          = link_to c.name, c if !c.nil?
+        .owner
+          = link_to c.user.name, c.user if !c.nil?

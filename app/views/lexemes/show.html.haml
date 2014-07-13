@@ -1,0 +1,4 @@
+- provide(:title, "#{@lexicon.name} - #{@lexeme.name}")
+%p= link_to "Return to #{@lexicon.name} &raquo;".html_safe, (lexicon_path @lexicon)
+
+= render 'shared/lexeme', object: @lexeme

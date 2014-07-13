@@ -1,0 +1,662 @@
+﻿.row-fluid
+  .span10
+    %h1 Markdown additions for conlanging
+    %p Click #{ link_to "here", "http://daringfireball.net/projects/markdown/basics", :target => "_blank" } for info on how to use Markdown.
+    
+    %h2#substitutions Substitutions
+    %p
+      Including the tag in the column on the left in any of the boxes that accept Markdown input will result in it being replaced with the character or characters on the right.
+      %em Some of these characters will more than likely not display unless wrapped in one of the wrapper tags which apply the SIL Charis font. See the #{ link_to "wrapper", "#wrappers" } section below.
+      
+    %table.substitutions
+      %tr
+        %td {syllabic_above}
+        %td.IPA &#9676;&#781;
+        %td {syllabic_below}
+        %td.IPA &#9676;&#809;
+      %tr
+        %td {non_syllabic}
+        %td.IPA &#9676;&#815;
+        %td {aspirated}
+        %td.IPA &#9676;&#688;
+      %tr
+        %td {inaudible}
+        %td.IPA &#9676;&#794;
+        %td {nasal}
+        %td.IPA &#9676;&#8319;
+      %tr
+        %td {lateral}
+        %td.IPA &#9676;&#737;
+        %td {voiceless_below}
+        %td.IPA &#9676;&#805;
+      %tr
+        %td {voiceless_above}
+        %td.IPA &#9676;&#778;
+        %td {voiced}
+        %td.IPA &#9676;&#812;
+      %tr
+        %td {breathy}
+        %td.IPA &#9676;&#804;
+        %td {creaky}
+        %td.IPA &#9676;&#816;
+      %tr
+        %td {dental}
+        %td.IPA &#9676;&#810;
+        %td {linguolabial}
+        %td.IPA &#9676;&#828;
+      %tr
+        %td {apical}
+        %td.IPA &#9676;&#826;
+        %td {laminal}
+        %td.IPA &#9676;&#827;
+      %tr
+        %td {advanced}
+        %td.IPA &#9676;&#799;
+        %td {retracted}
+        %td.IPA &#9676;&#800;
+      %tr
+        %td {centralized}
+        %td.IPA &#9676;&#776;
+        %td {mid_centralized}
+        %td.IPA &#9676;&#829;
+      %tr
+        %td {raised}
+        %td.IPA &#9676;&#797;
+        %td {lowered}
+        %td.IPA &#9676;&#798;
+      %tr
+        %td {more_rounded}
+        %td.IPA &#9676;&#825;
+        %td {less_rounded}
+        %td.IPA &#9676;&#796;
+      %tr
+        %td {labialized}
+        %td.IPA &#9676;&#695;
+        %td {palatalized}
+        %td.IPA &#9676;&#690;
+      %tr
+        %td {velarized}
+        %td.IPA &#9676;&#736;
+        %td {pharyngealized}
+        %td.IPA &#9676;&#740;
+      %tr
+        %td {labio_palatalized}
+        %td.IPA &#9676;&#7587;
+        %td {advanced_tongue_root}
+        %td.IPA &#9676;&#792;
+      %tr
+        %td {atr}
+        %td.IPA &#9676;&#792;
+        %td {retracted_tongue_root}
+        %td.IPA &#9676;&#793;
+      %tr
+        %td {rtr}
+        %td.IPA &#9676;&#793;
+        %td {nasalized}
+        %td.IPA &#9676;&#771;
+      %tr
+        %td {rhoticized}
+        %td.IPA &#9676;&#734;
+        %td {slack}
+        %td.IPA &#9676;&#805;
+      %tr
+        %td {primary_stress}
+        %td.IPA &#712;
+        %td {ps}
+        %td.IPA &#712;
+      %tr
+        %td {secondary_stress}
+        %td.IPA &#716;
+        %td {ss}
+        %td.IPA &#716;
+      %tr
+        %td {long}
+        %td.IPA &#720;
+        %td {half_long}
+        %td.IPA &#721;
+      %tr
+        %td {extra_short}
+        %td.IPA &#9676;&#774;
+        %td {ligature_tie}
+        %td.IPA &#9676;&#865;&#9676;
+      %tr
+        %td {ligature_tie_below}
+        %td.IPA &#9676;&#860;&#9676;
+        %td {undertie}
+        %td.IPA &#9676;&#8255;&#9676;
+      %tr
+        %td {minor_break}
+        %td.IPA &#124;
+        %td {major_break}
+        %td.IPA &#8214;
+      %tr
+        %td {global_rise}
+        %td.IPA &#8599;
+        %td {global_fall}
+        %td.IPA &#8600;
+      %tr
+        %td {upstep}
+        %td.IPA &#42779;
+        %td {downstep}
+        %td.IPA &#42780;
+      %tr
+        %td {extra_high_tone}
+        %td.IPA &#741;
+        %td {high_tone}
+        %td.IPA &#742;
+      %tr
+        %td {mid_tone}
+        %td.IPA &#743;
+        %td {low_tone}
+        %td.IPA &#744;
+      %tr
+        %td {extra_low_tone}
+        %td.IPA &#745;
+        %td {ogonek}
+        %td.IPA &#9676;&#808;
+      %tr
+        %td {voiceless_bilabial_nasal}
+        %td.IPA m&#805;
+        %td {voiced_bilabial_nasal}
+        %td.IPA m
+      %tr
+        %td {voiced_labio_dental_nasal}
+        %td.IPA &#625;
+        %td {voiced_dental_nasal}
+        %td.IPA n&#810;
+      %tr
+        %td {voiceless_alveolar_nasal}
+        %td.IPA n&#805;
+        %td {voiced_alveolar_nasal}
+        %td.IPA n
+      %tr
+        %td {voiced_post_alveolar_nasal}
+        %td.IPA n&#800;
+        %td {voiceless_retroflex_nasal}
+        %td.IPA &#627;&#778;
+      %tr
+        %td {voiced_retroflex_nasal}
+        %td.IPA &#627;
+        %td {voiced_alveolo_palatal_nasal}
+        %td.IPA &#626;&#799;
+      %tr
+        %td {voiceless_palatal_nasal}
+        %td.IPA &#626;&#778;
+        %td {voiced_palatal_nasal}
+        %td.IPA &#626;
+      %tr
+        %td {voiceless_velar_nasal}
+        %td.IPA &#331;&#778;
+        %td {voiced_velar_nasal}
+        %td.IPA &#331;
+      %tr
+        %td {voiced_uvular_nasal}
+        %td.IPA &#628;
+        %td {labial_velar_nasal}
+        %td.IPA &#331;&#865;m
+      %tr
+        %td {voiceless_bilabial_stop}
+        %td.IPA p
+        %td {voiced_bilabial_stop}
+        %td.IPA b
+      %tr
+        %td {voiceless_labio_dental_stop}
+        %td.IPA p&#810;
+        %td {voiced_labio_dental_stop}
+        %td.IPA b&#810;
+      %tr
+        %td {voiceless_dental_stop}
+        %td.IPA t&#810;
+        %td {voiced_dental_stop}
+        %td.IPA d&#810;
+      %tr
+        %td {voiceless_alveolar_stop}
+        %td.IPA t
+        %td {voiced_alveolar_stop}
+        %td.IPA d
+      %tr
+        %td {voiceless_retroflex_stop}
+        %td.IPA &#648;
+        %td {voiced_retroflex_stop}
+        %td.IPA &#598;
+      %tr
+        %td {voiceless_palatal_stop}
+        %td.IPA c
+        %td {voiced_palatal_stop}
+        %td.IPA &#607;
+      %tr
+        %td {voiceless_velar_stop}
+        %td.IPA k
+        %td {voiced_velar_stop}
+        %td.IPA g
+      %tr
+        %td {voiceless_uvular_stop}
+        %td.IPA q
+        %td {voiced_uvular_stop}
+        %td.IPA &#610;
+      %tr
+        %td {epiglottal_stop}
+        %td.IPA &#673;
+        %td {glottal_stop}
+        %td.IPA &#660;
+      %tr
+        %td {voiceless_labial_velar_stop}
+        %td.IPA k&#865;p
+        %td {voiced_labial_velar_stop}
+        %td.IPA g&#865;b
+      %tr
+        %td {voiceless_bilabial_fricative}
+        %td.IPA &#632;
+        %td {voiced_bilabial_fricative}
+        %td.IPA &#946;
+      %tr
+        %td {voiceless_labio_dental_fricative}
+        %td.IPA f
+        %td {voiced_labio_dental_fricative}
+        %td.IPA v
+      %tr
+        %td {voiceless_dental_fricative}
+        %td.IPA &#952;
+        %td {voiced_dental_fricative}
+        %td.IPA &#240;
+      %tr
+        %td {voiceless_alveolar_fricative}
+        %td.IPA s
+        %td {voiced_alveolar_fricative}
+        %td.IPA z
+      %tr
+        %td {voiceless_post_alveolar_fricative}
+        %td.IPA &#643;
+        %td {voiced_post_alveolar_fricative}
+        %td.IPA &#658;
+      %tr
+        %td {voiceless_retroflex_fricative}
+        %td.IPA &#642;
+        %td {voiced_retroflex_fricative}
+        %td.IPA &#656;
+      %tr
+        %td {voiceless_alveolo_palatal_fricative}
+        %td.IPA &#597;
+        %td {voiced_alveolo_palatal_fricative}
+        %td.IPA &#657;
+      %tr
+        %td {voiceless_palatal_fricative}
+        %td.IPA &#231;
+        %td {voiced_palatal_fricative}
+        %td.IPA &#669;
+      %tr
+        %td {voiceless_velar_fricative}
+        %td.IPA x
+        %td {voiced_velar_fricative}
+        %td.IPA &#611;
+      %tr
+        %td {voiceless_uvular_fricative}
+        %td.IPA &#967;
+        %td {voiced_uvular_fricative}
+        %td.IPA &#641;
+      %tr
+        %td {voiceless_pharyngeal_fricative}
+        %td.IPA &#295;
+        %td {voiced_pharyngeal_fricative}
+        %td.IPA &#661;
+      %tr
+        %td {voiceless_epiglottal_fricative}
+        %td.IPA &#668;
+        %td {voiced_epiglottal_fricative}
+        %td.IPA &#674;
+      %tr
+        %td {voiceless_glottal_fricative}
+        %td.IPA h
+        %td {voiced_glottal_fricative}
+        %td.IPA &#614;
+      %tr
+        %td {labio_dental_approximant}
+        %td.IPA &#651;
+        %td {alveolar_approximant}
+        %td.IPA &#633;
+      %tr
+        %td {retroflex_approximant}
+        %td.IPA &#635;
+        %td {voiceless_palatal_approximant}
+        %td.IPA j&#778;
+      %tr
+        %td {voiced_palatal_approximant}
+        %td.IPA j
+        %td {velar_approximant}
+        %td.IPA &#624;
+      %tr
+        %td {voiceless_labio_velar_approximant}
+        %td.IPA &#653;
+        %td {voiced_labio_velar_approximant}
+        %td.IPA w
+      %tr
+        %td {labial_palatal_approximant}
+        %td.IPA &#613;
+        %td {sj_sound}
+        %td.IPA &#615;
+      %tr
+        %td {bilabial_flap}
+        %td.IPA &#11377;​&#799;
+        %td {labio_dental_flap}
+        %td.IPA &#11377;​
+      %tr
+        %td {alveolar_tap}
+        %td.IPA &#638;
+        %td {retroflex_flap}
+        %td.IPA &#637;
+      %tr
+        %td {uvular_flap}
+        %td.IPA &#610;​&#774;
+        %td {epiglottal_flap}
+        %td.IPA &#673;​&#815;
+      %tr
+        %td {bilabial_trill}
+        %td.IPA &#665;
+        %td {voiceless_alveolar_trill}
+        %td.IPA r&#805;
+      %tr
+        %td {voiced_alveolar_trill}
+        %td.IPA r
+        %td {retroflex_trill}
+        %td.IPA &#637;​&#865;​&#114;
+      %tr
+        %td {uvular_trill}
+        %td.IPA &#640;
+        %td {epiglottal_trill}
+        %td.IPA &#7449;
+      %tr
+        %td {voiceless_alveolar_lateral_fricative}
+        %td.IPA &#620;
+        %td {voiced_alveolar_lateral_fricative}
+        %td.IPA &#622;
+      %tr
+        %td {voiceless_retroflex_lateral_fricative}
+        %td.IPA &#42894;
+        %td {voiceless_palatal_lateral_fricative}
+        %td.IPA &#654;​&#805;​&#797;
+      %tr
+        %td {voiceless_velar_lateral_fricative}
+        %td.IPA &#671;​&#778;​&#797;
+        %td {voiced_velar_lateral_fricative}
+        %td.IPA &#671;​&#797;
+      %tr
+        %td {voiceless_alveolar_lateral_approximant}
+        %td.IPA l​&#805;
+        %td {voiced_alveolar_lateral_approximant}
+        %td.IPA l
+      %tr
+        %td {retroflex_lateral_approximant}
+        %td.IPA &#621;
+        %td {alveolo_palatal_lateral_approximant}
+        %td.IPA &#654;&#799;
+      %tr
+        %td {palatal_lateral_approximant}
+        %td.IPA &#654;
+        %td {velar_lateral_approximant}
+        %td.IPA &#671;​
+      %tr
+        %td {alveolar_lateral_flap}
+        %td.IPA &#634;
+        %td {retroflex_lateral_flap}
+        %td.IPA &#62057;
+      %tr
+        %td {palatal_lateral_flap}
+        %td.IPA &#654;&#815;
+        %td {velar_lateral_flap}
+        %td.IPA &#671;​&#774;​
+      %tr
+        %td {bilabial_click}
+        %td.IPA &#664;
+        %td {dental_click}
+        %td.IPA &#448;
+      %tr
+        %td {alveolar_click}
+        %td.IPA &#451;
+        %td {retroflex_click}
+        %td.IPA &#8252;
+      %tr
+        %td {palatal_click}
+        %td.IPA &#450;
+        %td {lateral_click}
+        %td.IPA &#449;
+      %tr
+        %td {voiced_bilabial_implosive}
+        %td.IPA &#595;
+        %td {voiced_alveolar_implosive}
+        %td.IPA &#599;
+      %tr
+        %td {voiced_palatal_implosive}
+        %td.IPA &#644;
+        %td {voiced_retroflex_implosive}
+        %td.IPA &#7569;
+      %tr
+        %td {voiced_velar_implosive}
+        %td.IPA &#608;
+        %td {voiced_uvular_implosive}
+        %td.IPA &#667;
+      %tr
+        %td {bilabial_ejective}
+        %td.IPA p&#700;
+        %td {dental_ejective}
+        %td.IPA t&#810;&#700;
+      %tr
+        %td {alveolar_ejective}
+        %td.IPA t&#700;
+        %td {palatal_ejective}
+        %td.IPA c&#700;
+      %tr
+        %td {retroflex_ejective}
+        %td.IPA &#648;&#700;
+        %td {velar_ejective}
+        %td.IPA k&#700;
+      %tr
+        %td {uvular_ejective}
+        %td.IPA q&#700;
+        %td {labio_dental_ejective_fricative}
+        %td.IPA f&#700;
+      %tr
+        %td {dental_ejective_fricative}
+        %td.IPA &#952;&#700;
+        %td {alveolar_ejective_fricative}
+        %td.IPA s&#700;
+      %tr
+        %td {alveolar_lateral_ejective_fricative}
+        %td.IPA &#620;&#700;
+        %td {post_alveolar_ejective_fricative}
+        %td.IPA &#643;&#700;
+      %tr
+        %td {retroflex_ejective_fricative}
+        %td.IPA &#642;&#700;
+        %td {alveolo_palatal_ejective_fricative}
+        %td.IPA &#597;&#700;
+      %tr
+        %td {velar_ejective_fricative}
+        %td.IPA &#611;&#700;
+        %td {uvular_ejective_fricative}
+        %td.IPA &#967;&#700;
+      %tr
+        %td {alveolar_ejective_affricate}
+        %td.IPA t&#865;s&#700;
+        %td {alveolar_lateral_ejective_affricate}
+        %td.IPA t&#865;&#620;&#700;
+      %tr
+        %td {palatal_lateral_ejective_affricate}
+        %td.IPA c&#865;&#654;​&#805;​&#797;&#700;
+        %td {palato_alveolar_ejective_affricate}
+        %td.IPA t&#865;&#643;&#700;
+      %tr
+        %td {retroflex_ejective_affricate}
+        %td.IPA &#648;&#865;&#642;&#700;
+        %td {velar_ejective_affricate}
+        %td.IPA k&#865;x&#700;
+      %tr
+        %td {velar_lateral_ejective_affricate}
+        %td.IPA k&#865;&#671;​&#805;​&#797;&#700;
+        %td {uvular_ejective_affricate}
+        %td.IPA q&#865;&#967;&#700;
+      %tr
+        %td {voiceless_bilabial_affricate}
+        %td.IPA p&#865;&#632;
+        %td {voiced_bilabial_affricate}
+        %td.IPA b&#865;&#946;
+      %tr
+        %td {voiceless_labiodental_affricate}
+        %td.IPA p&#810;&#865;f
+        %td {voiced_labiodental_affricate}
+        %td.IPA b&#810;&#865;v
+      %tr
+        %td {voiceless_alveolar_affricate}
+        %td.IPA t&#865;s
+        %td {voiced_alveolar_affricate}
+        %td.IPA d&#865;z
+      %tr
+        %td {voiceless_post_alveolar_affricate}
+        %td.IPA t&#865;&#643;
+        %td {voiced_post_alveolar_affricate}
+        %td.IPA d&#865;&#658;
+      %tr
+        %td {voiceless_alveolo_palatal_affricate}
+        %td.IPA t&#865;&#597;
+        %td {voiced_alveolo_palatal_affricate}
+        %td.IPA d&#865;&#657;
+      %tr
+        %td {voiceless_retroflex_affricate}
+        %td.IPA &#648;​&#865;​&#642;
+        %td {voiced_retroflex_affricate}
+        %td.IPA &#598;​&#865;​&#656;
+      %tr
+        %td {voiceless_alveolar_lateral_affricate}
+        %td.IPA t&#865;​&#620;
+        %td {voiced_alveolar_lateral_affricate}
+        %td.IPA d&#865;&#622;
+      %tr
+        %td {voiceless_palatal_affricate}
+        %td.IPA c&#865;&#231;
+        %td {voiced_palatal_affricate}
+        %td.IPA &#607;​&#865;&#669;
+      %tr
+        %td {voiceless_palatal_lateral_affricate}
+        %td.IPA c&#865;&#654;​&#805;​&#797;
+        %td {voiceless_velar_affricate}
+        %td.IPA k&#865;x
+      %tr
+        %td {voiced_velar_affricate}
+        %td.IPA g&#865;&#611;
+        %td {voiceless_velar_lateral_affricate}
+        %td.IPA k&#865;&#671;​&#805;​&#797;
+      %tr
+        %td {voiced_velar_lateral_affricate}
+        %td.IPA g&#865;&#671;​​&#797;
+        %td {voiceless_uvular_affricate}
+        %td.IPA q&#865;&#967;
+      %tr
+        %td {voiced_uvular_affricate}
+        %td.IPA &#610;&#865;&#641;
+        %td {close_front_unrounded_vowel}
+        %td.IPA i
+      %tr
+        %td {close_front_rounded_vowel}
+        %td.IPA y
+        %td {close_central_unrounded_vowel}
+        %td.IPA &#616;
+      %tr
+        %td {close_central_rounded_vowel}
+        %td.IPA &#649;
+        %td {close_back_unrounded_vowel}
+        %td.IPA &#623;
+      %tr
+        %td {close_back_rounded_vowel}
+        %td.IPA u
+        %td {near_close_near_front_unrounded_vowel}
+        %td.IPA &#618;
+      %tr
+        %td {near_close_near_front_rounded_vowel}
+        %td.IPA &#655;
+        %td {near_close_central_unrounded_vowel}
+        %td.IPA &#618;​&#776;
+      %tr
+        %td {near_close_central_rounded_vowel}
+        %td.IPA &#650;​&#776;
+        %td {near_close_near_back_vowel}
+        %td.IPA &#650;
+      %tr
+        %td {close_mid_front_unrounded_vowel}
+        %td.IPA e
+        %td {close_mid_front_rounded_vowel}
+        %td.IPA &#248;
+      %tr
+        %td {close_mid_central_unrounded_vowel}
+        %td.IPA &#600;
+        %td {close_mid_central_rounded_vowel}
+        %td.IPA &#629;
+      %tr
+        %td {close_mid_back_unrounded_vowel}
+        %td.IPA &#612;
+        %td {close_mid_back_rounded_vowel}
+        %td.IPA o
+      %tr
+        %td {mid_front_unrounded_vowel}
+        %td.IPA e&#798;
+        %td {mid_front_rounded_vowel}
+        %td.IPA &#248;​&#798;
+      %tr
+        %td {mid_central_vowel}
+        %td.IPA &#601;
+        %td {mid_back_unrounded_vowel}
+        %td.IPA &#612;​&#798;
+      %tr
+        %td {mid_back_rounded_vowel}
+        %td.IPA o​&#798;
+        %td {open_mid_front_unrounded_vowel}
+        %td.IPA &#603;
+      %tr
+        %td {open_mid_front_rounded_vowel}
+        %td.IPA &#339;
+        %td {open_mid_central_unrounded_vowel}
+        %td.IPA &#604;
+      %tr
+        %td {open_mid_central_rounded_vowel}
+        %td.IPA &#606;
+        %td {open_mid_back_unrounded_vowel}
+        %td.IPA &#652;
+      %tr
+        %td {open_mid_back_rounded_vowel}
+        %td.IPA &#596;
+        %td {near_open_front_unrounded_vowel}
+        %td.IPA &#230;
+      %tr
+        %td {near_open_central_vowel}
+        %td.IPA &#592;
+        %td {open_front_unrounded_vowel}
+        %td.IPA a
+      %tr
+        %td {open_front_rounded_vowel}
+        %td.IPA &#630;
+        %td {open_central_unrounded_vowel}
+        %td.IPA &#228;
+      %tr
+        %td {open_back_unrounded_vowel}
+        %td.IPA &#593;
+        %td {open_back_rounded_vowel}
+        %td.IPA &#594;
+    
+    %h2#wrappers Wrappers
+    %p The following tags will wrap the contained text as demonstrated. All wrappers apply the SIL Charis font which has extensive character support.
+    
+    %table.wrappers
+      %tr
+        %td {phonemic}t{open_mid_front_unrounded_vowel}st{near_close_near_front_unrounded_vowel}{voiced_velar_nasal}{/phonemic}
+        %td
+          .phonemic tɛstɪŋ
+      %tr
+        %td {phonetic}tɛstɪŋ{/phonetic}
+        %td
+          .phonetic tɛstɪŋ
+      %tr
+        %td {orthographic}tɛstɪŋ{/orthographic}
+        %td
+          .orthographic tɛstɪŋ
+      %tr
+        %td {IPA}tɛstɪŋ{/IPA}
+        %td
+          .IPA tɛstɪŋ

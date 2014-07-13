@@ -1,0 +1,12 @@
+﻿.row
+  .col-md-6
+    %h2 Your Recent Lexemes
+    %dl.dl-horizontal
+      - current_user.lexemes.order("created_at DESC").limit(3).each do |l|
+        = render 'shared/lexeme', :object => l, :show_lexicon => true
+
+  .col-md-6
+    %h2 Recent Public Lexemes
+    %dl.dl-horizontal
+      - Lexeme.recent.each do |l|
+        = render 'shared/lexeme', :object => l, :show_lexicon => true

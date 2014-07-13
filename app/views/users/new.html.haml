@@ -1,0 +1,17 @@
+- provide(:title, "New User")
+%h1 New User
+= simple_form_for @user, :html => { :class => "form-horizontal" } do |u|
+  = render 'shared/error_messages', object: u.object
+  
+  = u.input :name
+
+  = u.input :email
+
+  = u.input :password
+
+  = u.input :password_confirmation
+  
+  .control-group
+    .text-warning.control-label *Required fields.
+    .controls
+      = u.button :submit, :class => "btn btn-large btn-primary"

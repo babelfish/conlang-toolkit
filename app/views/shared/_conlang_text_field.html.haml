@@ -1,0 +1,6 @@
+﻿- if !field.blank?
+  %li
+    %h2= title
+    .markdown
+      :markdown
+        #{ sanitize (MarkdownFilter::filter field) }
